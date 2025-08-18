@@ -91,7 +91,7 @@ async def create_lyrics(request: LyricsRequest):
             verses = length_map.get(request.length.lower(), 2)  # Default to medium (2) if not recognized
         else:
             verses = 2  # Default to medium if not a string
-        
+        print("reached")
         lyrics = generate_lyrics(
             theme=request.theme, 
             style=request.style, 

@@ -91,13 +91,13 @@ export default function LyricGenerator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gray-900 text-gray-100">
       {/* Header */}
-      <header className="bg-gradient-to-r from-blue-400 to-indigo-500 text-white p-6">
+      <header className="bg-indigo-900 text-white p-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex justify-between items-center">
             <h1 className="text-3xl font-bold">Tamil Lyric Generator</h1>
-            <Link to="/" className="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors">
+            <Link to="/" className="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg transition-colors">
               Back to Home
             </Link>
           </div>
@@ -106,22 +106,22 @@ export default function LyricGenerator() {
 
       <div className="max-w-5xl mx-auto p-6">
         {error && (
-          <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded">
+          <div className="bg-red-900 border-l-4 border-red-500 text-red-100 p-4 mb-6 rounded">
             <p>{error}</p>
           </div>
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Controls Section */}
-          <div className="bg-white rounded-xl shadow-md p-6">
-            <h2 className="text-xl font-bold mb-4">Generate Tamil Lyrics</h2>
+          <div className="bg-gray-800 border border-gray-700 rounded-xl shadow-md p-6">
+            <h2 className="text-xl font-bold mb-4 text-white">Generate Tamil Lyrics</h2>
             
             <div className="space-y-4">
               {/* Theme */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Theme</label>
+                <label className="block text-sm font-medium text-gray-300 mb-1">Theme</label>
                 <select
-                  className="w-full border border-gray-300 rounded-lg p-2"
+                  className="w-full border border-gray-600 bg-gray-700 text-white rounded-lg p-2"
                   value={theme}
                   onChange={(e) => setTheme(e.target.value)}
                 >
@@ -135,9 +135,9 @@ export default function LyricGenerator() {
               
               {/* Style */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Style</label>
+                <label className="block text-sm font-medium text-gray-300 mb-1">Style</label>
                 <select
-                  className="w-full border border-gray-300 rounded-lg p-2"
+                  className="w-full border border-gray-600 bg-gray-700 text-white rounded-lg p-2"
                   value={style}
                   onChange={(e) => setStyle(e.target.value)}
                 >
@@ -151,9 +151,9 @@ export default function LyricGenerator() {
               
               {/* Length */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Length</label>
+                <label className="block text-sm font-medium text-gray-300 mb-1">Length</label>
                 <select
-                  className="w-full border border-gray-300 rounded-lg p-2"
+                  className="w-full border border-gray-600 bg-gray-700 text-white rounded-lg p-2"
                   value={length}
                   onChange={(e) => setLength(e.target.value)}
                 >
@@ -167,22 +167,22 @@ export default function LyricGenerator() {
               
               {/* Seed Text */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-gray-300 mb-1">
                   Starting Line (Optional)
                 </label>
                 <textarea
-                  className="w-full border border-gray-300 rounded-lg p-3 h-20 font-tamil"
+                  className="w-full border border-gray-600 bg-gray-700 text-white rounded-lg p-3 h-20 font-tamil"
                   placeholder="Enter a starting line for your lyrics (optional)..."
                   value={seed}
                   onChange={(e) => setSeed(e.target.value)}
                 />
-                <p className="mt-1 text-xs text-gray-500">
+                <p className="mt-1 text-xs text-gray-400">
                   Leave blank for completely new lyrics, or enter a starting line to build from.
                 </p>
               </div>
               
               <button
-                className="w-full bg-gradient-to-r from-blue-400 to-indigo-500 text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center mt-4"
+                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center justify-center mt-4"
                 onClick={handleGenerateLyrics}
                 disabled={isLoading}
               >
@@ -202,32 +202,32 @@ export default function LyricGenerator() {
           </div>
           
           {/* Output Section */}
-          <div className="bg-white rounded-xl shadow-md p-6">
-            <h2 className="text-xl font-bold mb-4">Generated Lyrics</h2>
+          <div className="bg-gray-800 border border-gray-700 rounded-xl shadow-md p-6">
+            <h2 className="text-xl font-bold mb-4 text-white">Generated Lyrics</h2>
             
             {generatedLyrics ? (
-              <div className="bg-gray-50 p-4 rounded-lg border min-h-[300px] font-tamil relative">
-                <pre className="whitespace-pre-wrap text-lg leading-relaxed">
+              <div className="bg-gray-700 border-gray-600 p-4 rounded-lg min-h-[300px] font-tamil relative">
+                <pre className="whitespace-pre-wrap text-lg leading-relaxed text-gray-100">
                   {generatedLyrics}
                 </pre>
                 
                 <div className="absolute top-2 right-2 flex space-x-2">
                   <button
-                    className="bg-gray-200 hover:bg-gray-300 p-2 rounded-full"
+                    className="bg-gray-600 hover:bg-gray-500 p-2 rounded-full"
                     onClick={() => {
                       navigator.clipboard.writeText(generatedLyrics);
                       alert("Lyrics copied to clipboard!");
                     }}
                     title="Copy to clipboard"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002-2h2a2 2 0 002 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                     </svg>
                   </button>
                 </div>
               </div>
             ) : (
-              <div className="bg-gray-50 p-4 rounded-lg border min-h-[300px] flex items-center justify-center text-gray-400">
+              <div className="bg-gray-700 border-gray-600 p-4 rounded-lg min-h-[300px] flex items-center justify-center text-gray-400">
                 <p>Generated lyrics will appear here</p>
               </div>
             )}
@@ -235,7 +235,7 @@ export default function LyricGenerator() {
             {generatedLyrics && (
               <div className="mt-4 flex flex-wrap gap-2">
                 <button
-                  className="flex-1 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg transition-colors text-sm"
+                  className="flex-1 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg transition-colors text-sm"
                   onClick={() => {
                     setSeed(generatedLyrics.split('\n')[0]);
                     setGeneratedLyrics('');
@@ -244,7 +244,7 @@ export default function LyricGenerator() {
                   Use First Line As Seed
                 </button>
                 <button
-                  className="flex-1 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg transition-colors text-sm"
+                  className="flex-1 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg transition-colors text-sm"
                   onClick={handleGenerateLyrics}
                 >
                   Generate Another
@@ -255,7 +255,7 @@ export default function LyricGenerator() {
         </div>
       </div>
       
-      <footer className="text-center py-6 text-gray-500 text-sm border-t border-gray-200 mt-8">
+      <footer className="text-center py-6 text-gray-400 text-sm border-t border-gray-700 mt-8">
         <p>Tamil Lyric Generator &copy; 2025 | Created by Vinushaanth</p>
       </footer>
     </div>

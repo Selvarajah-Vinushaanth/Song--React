@@ -9,7 +9,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 # Load pre-trained model and tokenizer for metaphor classification
 # Note: In a real implementation, you would use a model specifically fine-tuned for metaphor detection
 # This example uses a sentiment model as a placeholder - you would replace with an actual metaphor classifier
-MODEL_NAME = "distilbert-base-uncased-finetuned-sst-2-english"  # Replace with actual metaphor model
+MODEL_NAME = "Vinushaanth/metaphor-classifier"  # Replace with actual metaphor model
     
 # Initialize tokenizer and model (lazy loading - will load on first use)
 tokenizer = None
